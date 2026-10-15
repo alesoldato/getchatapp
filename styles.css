@@ -28,7 +28,7 @@
   .hero h1{order:1;line-height:1.24;margin:30px auto 28px}
   .hero-copy>p{order:2;margin:0 auto}
   .hero-action-row{order:3;margin-top:36px}
-  .drastically img{width:calc(100% + 10px);height:auto;left:-5px;bottom:-3px}
+  .drastically img{width:calc(100% + 10px);height:auto;left:-5px;bottom:3px}
   .feature-arrow{left:calc(50% - 35px);top:24px;transform:scale(.7);transform-origin:top left}
   .testimonial-arrow{width:50px;height:52px;right:0;bottom:-24px}
   .testimonial-arrow img{transform:rotate(-138.27deg) scale(.48)}
