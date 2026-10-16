@@ -6,13 +6,16 @@
 
 /* Revisions matched to the GetChatApp desktop and mobile artboards. */
 :root{--paper:#f7f7f7}
-.wordmark{display:inline-flex;align-items:center;flex:none;line-height:0}
-.wordmark img{display:block;width:162px;height:35px;max-width:none}
-.hero-art-layer{animation:none;will-change:auto}
+.wordmark{display:inline-flex;align-items:center;flex:none;line-height:0;width:160px;height:27px}
+.wordmark img{display:block;width:auto;height:auto;max-width:none}
+.hero-part{position:absolute;display:block;overflow:visible;max-width:none;will-change:transform;filter:drop-shadow(0 11px 16px #00000012)}
+.hero-part-list{left:0;top:17.1%;width:54.5%;animation:float-one 8s ease-in-out infinite}
+.hero-part-card{left:41.8%;top:15.1%;width:49.1%;animation:float-two 7s ease-in-out infinite}
+.hero-part-messages{left:37%;top:0;width:45.5%;animation:float-three 6s ease-in-out infinite;filter:none}
 .drastically{position:relative;display:inline-block}
 .drastically img{position:absolute;width:calc(100% + 20px);max-width:none;height:13px;left:-15px;bottom:-3px}
 .more-features{position:relative;margin:0;line-height:35px;color:var(--ink)}
-.feature-arrow{position:absolute;display:flex;align-items:center;justify-content:center;width:62px;height:93px;left:-18px;top:21px;clip-path:inset(0 0 100% 0)}
+.feature-arrow{position:absolute;display:flex;align-items:center;justify-content:center;width:62px;height:93px;left:-18px;top:51px;clip-path:inset(0 0 100% 0)}
 .feature-arrow img{position:static;width:28.4428px;height:89.0383px;max-width:none;flex:none;transform:rotate(-156.13deg) scaleY(-1);transition:none}
 .more-features:hover img{transform:rotate(-156.13deg) scaleY(-1)}
 .about-copy.visible .feature-arrow{animation:draw-arrow 1.15s cubic-bezier(.42,0,.2,1) .3s forwards}
@@ -21,8 +24,8 @@
 .testimonials-head.visible .testimonial-arrow{animation:draw-arrow 1.15s cubic-bezier(.42,0,.2,1) .3s forwards}
 @keyframes draw-arrow{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
 @media(max-width:760px){
-  .wordmark img{width:116px;height:auto}
-  .footer-inner .wordmark img{width:162px}
+  .site-header .wordmark{width:116px;height:20px}
+  .site-header .wordmark img{transform:scale(.725);transform-origin:top left}
   .hero{padding-top:0}
   .hero-visual{order:0;width:294px}
   .hero h1{order:1;line-height:1.24;margin:30px auto 28px}
@@ -34,3 +37,4 @@
   .testimonial-arrow img{transform:rotate(-138.27deg) scale(.48)}
 }
 @media(prefers-reduced-motion:reduce){.feature-arrow,.testimonial-arrow{clip-path:none!important;animation:none!important}}
+@media(prefers-reduced-motion:reduce){.hero-part{animation:none}}
