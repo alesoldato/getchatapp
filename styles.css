@@ -38,3 +38,10 @@
 }
 @media(prefers-reduced-motion:reduce){.feature-arrow,.testimonial-arrow{clip-path:none!important;animation:none!important}}
 @media(prefers-reduced-motion:reduce){.hero-part{animation:none}}
+
+/* Keep the space between testimonial rows equal to the space between cards. */
+.testimonial-marquee{margin:15px 0}
+.drastically img{-webkit-mask-image:linear-gradient(#000,#000);mask-image:linear-gradient(#000,#000);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:0 100%;mask-size:0 100%;animation:underline-reveal 1.1s cubic-bezier(.22,1,.36,1) .45s forwards}
+@keyframes underline-reveal{to{-webkit-mask-size:100% 100%;mask-size:100% 100%}}
+@media(max-width:760px){.testimonial-marquee{margin:6.5px 0}}
+@media(prefers-reduced-motion:reduce){.drastically img{-webkit-mask-size:100% 100%;mask-size:100% 100%;animation:none}}
