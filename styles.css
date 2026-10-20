@@ -68,3 +68,4 @@
 @media(prefers-reduced-motion:reduce){
   .intro-enter,.hero-copy.intro-enter>h1,.hero-copy.intro-enter>p,.hero-copy.intro-enter>.hero-action-row{animation:none!important;opacity:1;transform:none}
 }
+@media(max-width:760px){.footer-inner{padding-top:45px}}
