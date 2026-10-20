@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#f7f7f7">
   <meta name="description" content="GetChatApp helps you connect with visitors through the messaging platforms they already use.">
   <title>GetChatApp — Talk to your visitors</title>
-  <link rel="stylesheet" href="styles.css?v=10">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script defer src="script.js?v=3"></script>
 </head>
 <body>
   <div class="page-bg" aria-hidden="true"><img src="assets/imgBgCircles.svg" alt=""></div>
@@ -75,16 +75,22 @@
     <section class="customize wrap" id="customize" aria-labelledby="customize-title">
       <div class="section-heading reveal"><h2 id="customize-title">Customize your Chat Button</h2></div>
       <div class="customize-panel reveal">
-        <div class="customize-form"><h3>Step 1</h3><h4>Customize Your Button</h4>
+        <div class="customize-form"><div class="customize-step-one"><h3>Step 1</h3><h4>Customize Your Button</h4>
           <label for="customTitle">Custom Title</label><input id="customTitle" type="text" value="👋  Chat with me on WhatsApp!" maxlength="70">
           <label for="customMessage">Custom Message</label><textarea id="customMessage" rows="5">Hey there! 🙌
 Get in touch with me by typing a message here. It will go straight to my phone! 🔥
 
 ~Your Name</textarea>
           <div class="form-bottom"><div><label for="mobileNumber">Add Your Mobile Number</label><input id="mobileNumber" type="tel" placeholder="Your Mobile Number"></div><fieldset><legend>Chat Position</legend><label><input type="radio" name="position" value="left"> Left</label><label><input type="radio" name="position" value="right" checked> Right</label></fieldset></div>
-          <button class="button button-outline step-button" type="button"><span>Go to Step 2</span></button>
+          <button class="button button-outline step-button" id="nextStepButton" type="button"><span>Go to Step 2</span></button>
+          </div>
+          <div class="customize-step-two" hidden><h3>Step 2</h3><h4>Paste the code to your website</h4>
+            <label for="embedCode">Code to paste</label><textarea id="embedCode" class="code-area" readonly spellcheck="false"></textarea>
+            <button class="button button-dark copy-code-button" id="copyCodeButton" type="button"><span aria-live="polite">Copy Code</span></button>
+            <button class="button button-outline back-step-button" id="backStepButton" type="button"><span>Back to Customization</span></button>
+          </div>
         </div>
-        <div class="preview-stage" aria-label="Live chat button preview"><div class="chat-preview"><div class="preview-title" id="previewTitle">👋 &nbsp;Chat with me on WhatsApp!</div><div class="preview-content"><p class="preview-label">Your Message</p><p id="previewMessage">Hey there! 🙌<br>Get in touch with me by typing a message here. It will go straight to my phone! 🔥<br><br>~Your Name</p><small>Powered by GetChatApp</small></div><div class="preview-compose">Type a message <span>➤</span></div></div><div class="chat-fab" aria-hidden="true"><img src="assets/imgGroup63.svg" width="148" height="148" alt=""></div><p class="preview-phone" id="previewPhone" aria-live="polite"></p></div>
+        <div class="preview-stage" aria-label="Live chat button preview"><div class="chat-preview"><div class="preview-title" id="previewTitle">👋 &nbsp;Chat with me on WhatsApp!</div><div class="preview-content"><p class="preview-label">Your Message</p><p id="previewMessage">Hey there! 🙌<br>Get in touch with me by typing a message here. It will go straight to my phone! 🔥<br><br>~Your Name</p><small>Powered by GetChatApp</small></div><div class="preview-compose"><span>Your Message</span><img src="assets/imgSend11.svg" width="30" height="30" alt=""></div></div><div class="chat-fab" aria-hidden="true"><img src="assets/imgGroup63.svg" width="148" height="148" alt=""></div><p class="preview-phone" id="previewPhone" aria-live="polite"></p></div>
       </div>
     </section>
 
@@ -92,5 +98,17 @@ Get in touch with me by typing a message here. It will go straight to my phone! 
   </main>
 
   <footer class="site-footer"><div class="wrap footer-inner"><div><a class="wordmark" href="#top" aria-label="GetChatApp home"><img src="assets/getchatapp-logo-light.svg" width="160" height="27" alt="GetChatApp"></a><p>Copyright 2022 © GetChat.App. All Rights Reserved.</p></div><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#testimonials">Testimonials</a><a href="#prices">Prices</a></nav><nav aria-label="More links"><a href="#customize">Customize</a><a href="#help">Need Help?</a><a href="#customize">Try for Free</a></nav><div class="footer-social"><a href="#top">Twitter</a><a href="#top">Facebook</a><a href="#top">Instagram</a></div><div class="footer-contact"><a href="mailto:support@getchatapp.com">support@getchatapp.com</a><a href="tel:+12126777667">+1 212 677 7667</a></div></div></footer>
+  <div class="upgrade-overlay" id="upgradeOverlay" hidden>
+    <div class="upgrade-card" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+      <h2 id="upgradeTitle">Unlock the power of GetChatApp<br class="desktop-only"> with all the features</h2>
+      <ul>
+        <li><img src="assets/imgCheck1.svg" width="28" height="28" alt="">Multiple Social Media Integrations</li>
+        <li><img src="assets/imgCheck2.svg" width="28" height="28" alt="">Automated Replies</li>
+        <li><img src="assets/imgCheck2.svg" width="28" height="28" alt="">Personalized Messages and many more...</li>
+      </ul>
+      <button class="button button-dark" id="upgradeExplore" type="button"><span>Unlock All the Features</span></button>
+      <button class="button button-outline" id="upgradeDismiss" type="button"><span>I’m good. Thanks!</span></button>
+    </div>
+  </div>
 </body>
 </html>

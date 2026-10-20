@@ -32,6 +32,86 @@ messageInput.addEventListener('input',()=>{previewMessage.textContent=messageInp
 phoneInput.addEventListener('input',()=>{previewPhone.textContent=phoneInput.value?`WhatsApp: ${phoneInput.value}`:''});
 document.querySelectorAll('input[name="position"]').forEach(input=>input.addEventListener('change',()=>previewStage.classList.toggle('left',input.value==='left'&&input.checked)));
 
+const customizePanel=document.querySelector('.customize-panel');
+const stepOne=document.querySelector('.customize-step-one');
+const stepTwo=document.querySelector('.customize-step-two');
+const embedCode=document.getElementById('embedCode');
+const copyCodeButton=document.getElementById('copyCodeButton');
+const copyCodeLabel=copyCodeButton.querySelector('span');
+const upgradeOverlay=document.getElementById('upgradeOverlay');
+const upgradeExplore=document.getElementById('upgradeExplore');
+const upgradeDismiss=document.getElementById('upgradeDismiss');
+let upgradeTimer;
+const escapeHtml=value=>value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+function makeEmbedCode(){
+  const number=phoneInput.value.replace(/\D/g,'')||'15551234567';
+  const title=escapeHtml(titleInput.value.trim()||'Chat with me on WhatsApp!');
+  const message=encodeURIComponent(messageInput.value.trim()||'Hi! I have a question.');
+  const side=document.querySelector('input[name="position"]:checked')?.value==='left'?'left':'right';
+  const demoNote=phoneInput.value.replace(/\D/g,'')?'':'<!-- Demo number: add your WhatsApp number in Step 1 before publishing. -->\n';
+  return `${demoNote}<a class="getchatapp-whatsapp-button"
+   href="https://wa.me/${number}?text=${message}"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="${title}">
+  <img src="https://alesoldato.github.io/getchatapp/assets/imgGroup63.svg"
+       width="148" height="148" alt="">
+</a>
+<style>
+  .getchatapp-whatsapp-button {
+    position: fixed; ${side}: 24px; bottom: 24px;
+    width: 80px; height: 80px; z-index: 2147483647;
+    transition: transform .3s ease;
+  }
+  .getchatapp-whatsapp-button:hover { transform: translateY(-3px); }
+  .getchatapp-whatsapp-button:focus-visible { outline: 2px solid #008e62; outline-offset: 5px; }
+  .getchatapp-whatsapp-button img {
+    position: absolute; left: 50%; top: 50%;
+    width: 148px; height: 148px; max-width: none;
+    transform: translate(-50%, -50%);
+  }
+</style>`;
+}
+
+function refreshEmbedCode(){embedCode.value=makeEmbedCode();copyCodeLabel.textContent='Copy Code'}
+[titleInput,messageInput,phoneInput,...document.querySelectorAll('input[name="position"]')].forEach(input=>input.addEventListener('input',refreshEmbedCode));
+refreshEmbedCode();
+
+document.getElementById('nextStepButton').addEventListener('click',()=>{
+  refreshEmbedCode();
+  stepOne.hidden=true;
+  stepTwo.hidden=false;
+  customizePanel.classList.add('step-two-active');
+  document.getElementById('customize').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+});
+document.getElementById('backStepButton').addEventListener('click',()=>{
+  clearTimeout(upgradeTimer);
+  stepTwo.hidden=true;
+  stepOne.hidden=false;
+  customizePanel.classList.remove('step-two-active');
+});
+function showUpgrade(){upgradeOverlay.hidden=false;document.body.classList.add('modal-open');upgradeDismiss.focus()}
+function closeUpgrade(restoreFocus=true){upgradeOverlay.hidden=true;document.body.classList.remove('modal-open');if(restoreFocus)copyCodeButton.focus({preventScroll:true})}
+copyCodeButton.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(embedCode.value)}
+  catch{
+    embedCode.focus();embedCode.select();
+    if(!document.execCommand('copy')){copyCodeLabel.textContent='Select code to copy';return}
+  }
+  copyCodeLabel.textContent='Code Copied';
+  clearTimeout(upgradeTimer);
+  upgradeTimer=setTimeout(showUpgrade,650);
+});
+upgradeDismiss.addEventListener('click',()=>closeUpgrade());
+upgradeExplore.addEventListener('click',()=>{closeUpgrade(false);document.getElementById('prices').scrollIntoView({behavior:'smooth',block:'start'})});
+upgradeOverlay.addEventListener('click',event=>{if(event.target===upgradeOverlay)closeUpgrade()});
+upgradeOverlay.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){closeUpgrade();return}
+  if(event.key!=='Tab')return;
+  if(event.shiftKey&&document.activeElement===upgradeExplore){event.preventDefault();upgradeDismiss.focus()}
+  else if(!event.shiftKey&&document.activeElement===upgradeDismiss){event.preventDefault();upgradeExplore.focus()}
+});
+
 const menuToggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('.main-nav');
 menuToggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close menu':'Open menu')});
