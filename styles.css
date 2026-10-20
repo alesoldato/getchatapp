@@ -54,16 +54,16 @@
 @keyframes intro-enter{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .intro-enter{animation:intro-enter .9s var(--ease) both}
 .site-header.intro-enter{animation-delay:0s}
-.hero-copy.intro-enter{animation-delay:.65s}
-.hero-visual.intro-enter{animation-delay:.8s}
-.drastically img{animation-delay:1.2s}
+.hero-copy.intro-enter{animation-delay:.325s}
+.hero-visual.intro-enter{animation-delay:.4s}
+.drastically img{animation-delay:.875s}
 @media(max-width:760px){
   .hero-copy.intro-enter{animation:none}
   .hero-copy.intro-enter>h1,.hero-copy.intro-enter>p,.hero-copy.intro-enter>.hero-action-row{animation:intro-enter .9s var(--ease) both}
-  .hero-visual.intro-enter{animation-delay:.65s}
-  .hero-copy.intro-enter>h1{animation-delay:.8s}
-  .hero-copy.intro-enter>p{animation-delay:.9s}
-  .hero-copy.intro-enter>.hero-action-row{animation-delay:1s}
+  .hero-visual.intro-enter{animation-delay:.325s}
+  .hero-copy.intro-enter>h1{animation-delay:.4s}
+  .hero-copy.intro-enter>p{animation-delay:.45s}
+  .hero-copy.intro-enter>.hero-action-row{animation-delay:.5s}
 }
 @media(prefers-reduced-motion:reduce){
   .intro-enter,.hero-copy.intro-enter>h1,.hero-copy.intro-enter>p,.hero-copy.intro-enter>.hero-action-row{animation:none!important;opacity:1;transform:none}
