@@ -82,7 +82,6 @@ document.getElementById('nextStepButton').addEventListener('click',()=>{
   stepOne.hidden=true;
   stepTwo.hidden=false;
   customizePanel.classList.add('step-two-active');
-  document.getElementById('customize').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 });
 document.getElementById('backStepButton').addEventListener('click',()=>{
   clearTimeout(upgradeTimer);
