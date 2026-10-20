@@ -32,7 +32,6 @@ messageInput.addEventListener('input',()=>{previewMessage.textContent=messageInp
 phoneInput.addEventListener('input',()=>{previewPhone.textContent=phoneInput.value?`WhatsApp: ${phoneInput.value}`:''});
 document.querySelectorAll('input[name="position"]').forEach(input=>input.addEventListener('change',()=>previewStage.classList.toggle('left',input.value==='left'&&input.checked)));
 
-const customizePanel=document.querySelector('.customize-panel');
 const stepOne=document.querySelector('.customize-step-one');
 const stepTwo=document.querySelector('.customize-step-two');
 const embedCode=document.getElementById('embedCode');
@@ -81,13 +80,11 @@ document.getElementById('nextStepButton').addEventListener('click',()=>{
   refreshEmbedCode();
   stepOne.hidden=true;
   stepTwo.hidden=false;
-  customizePanel.classList.add('step-two-active');
 });
 document.getElementById('backStepButton').addEventListener('click',()=>{
   clearTimeout(upgradeTimer);
   stepTwo.hidden=true;
   stepOne.hidden=false;
-  customizePanel.classList.remove('step-two-active');
 });
 function showUpgrade(){upgradeOverlay.hidden=false;document.body.classList.add('modal-open');upgradeDismiss.focus()}
 function closeUpgrade(restoreFocus=true){upgradeOverlay.hidden=true;document.body.classList.remove('modal-open');if(restoreFocus)copyCodeButton.focus({preventScroll:true})}
