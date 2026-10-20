@@ -84,7 +84,7 @@
 .back-step-button{margin-top:auto}
 .preview-stage{min-height:718px;align-items:flex-start;padding:72px 40px 40px;border-radius:0 25px 25px 0;background:#eef4f5 url('assets/imgRectangle3.svg') center/100% 100% no-repeat}
 .chat-preview{width:411px;min-height:473px;display:flex;flex-direction:column}
-.preview-title{min-height:60px;padding:12px 23px;background:#03d185 url('assets/imgRectangle4.svg') center/100% 100% no-repeat}
+.preview-title{display:flex;align-items:center;min-height:60px;padding:12px 23px;background:#03d185 url('assets/imgRectangle4.svg') center/100% 100% no-repeat}
 .preview-content{flex:1}
 .preview-compose img{width:30px;height:30px;object-fit:contain;transform:rotate(-35.66deg)}
 .preview-compose{width:100%;min-height:76px;margin:auto 0 0;padding:15px;border:0;align-items:center;background:white url('assets/imgRectangle6.svg') center/100% 100% no-repeat}
