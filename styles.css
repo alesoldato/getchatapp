@@ -47,3 +47,5 @@
 @keyframes underline-reveal{to{-webkit-mask-size:100% 100%;mask-size:100% 100%}}
 @media(max-width:760px){.testimonials{--testimonial-gap:13px}}
 @media(prefers-reduced-motion:reduce){.drastically img{-webkit-mask-size:100% 100%;mask-size:100% 100%;animation:none}}
+.chat-fab{background:none;box-shadow:none}
+.chat-fab img{position:absolute;left:50%;top:55%;width:185%;height:auto;max-width:none;transform:translate(-50%,-50%)}
